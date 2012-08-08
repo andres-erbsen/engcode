@@ -8,7 +8,7 @@ FILE* wordsfile;
 // damn fast engcode encoder
 // to use, first run ./preptable < words.txt > words.map
 
-int wordsprinted = 0;
+char wordsprinted = 0;
 void word(unsigned int n) {
     /* fprintf(stderr,"%x %u\n",n,n); */
     /* if (n > (1<<18)) {fprintf(stderr,"n too large\n");exit(1);}; */
@@ -31,7 +31,7 @@ void word(unsigned int n) {
         if (fwrite(" ", 1, 1, stdout)           != 1) perror("writing ' ' to stdout failed");
     }
     if (fwrite(buf, 1, len, stdout)            != len) perror("writing word to stdout failed");
-    wordsprinted++;
+    wordsprinted = 1;
 }
 
 /* convert 9 bytes to 4 words */
