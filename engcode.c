@@ -5,6 +5,9 @@
 FILE* tablefile;
 FILE* wordsfile;
 
+// damn fast engcode encoder
+// to use, first run ./preptable < words.txt > words.map
+
 int wordsprinted = 0;
 void word(unsigned int n) {
     /* fprintf(stderr,"%x %u\n",n,n); */
@@ -17,7 +20,7 @@ void word(unsigned int n) {
         if (fread(&begin, 4, 1, tablefile)       != 1) perror("Read 1st index in map failed");
         begin++;
     } else {
-	    if (fseek(tablefile, 0, SEEK_SET)       == -1) perror("Seek map to beginning failed");
+        if (fseek(tablefile, 0, SEEK_SET)       == -1) perror("Seek map to beginning failed");
     }
     if (fread(&pastend, 4, 1, tablefile)        == -1) perror("Read 2nd index in map failed");
     len = pastend - begin;
@@ -25,8 +28,8 @@ void word(unsigned int n) {
     if (fseek(wordsfile, begin, SEEK_SET)       == -1) perror("Seek in words file failed");
     if (fread(&buf, 1, len, wordsfile)         != len) perror("Reading from words file failed");
     if (wordsprinted) {
-		if (fwrite(" ", 1, 1, stdout)           != 1) perror("writing ' ' to stdout failed");
-	}
+        if (fwrite(" ", 1, 1, stdout)           != 1) perror("writing ' ' to stdout failed");
+    }
     if (fwrite(buf, 1, len, stdout)            != len) perror("writing word to stdout failed");
     wordsprinted++;
 }
