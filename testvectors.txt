@@ -1,0 +1,20 @@
+$ echo -ne \\0\\0\\0\\0\\0\\0\\0\\0\\0 | ./engcode
+aa aa aa aa
+
+$ echo -ne \\0 | ./engcode
+aa
+
+$ echo -ne \\0\\0 | ./engcode
+aa
+
+$ echo -ne \\0\\0\\0 | ./engcode
+aa aa
+
+$ echo -n "hoax" | ./engcode
+hypnotic minimised
+
+$ echo -n "engcodeed" | ./engcode
+homophobias parging vetivert geophysical
+
+$ echo -n "I like apples" | ./engcode
+equalities quadrivalents recrudesced bossest intimism organismal
