@@ -17,7 +17,7 @@ bit is the first one. Lets denote this value n.
 
 Decoding is similar:
 
-- For wach word in the input, find its position in the word list
+- For each word in the input, find its position in the word list
 - Encode it as an unsigned k-bit integer (MSB first again)
 - Concatenate values from all groups
 
